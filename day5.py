@@ -14,7 +14,7 @@ def solution_1(lines):
 
 def solution_2(lines):
     seat_ids = sorted(get_seatid(line.strip()) for line in lines)
-    return next(a+1 for a, b in pairwise(seat_ids) if not b==a+1)
+    return next(a+1 for a, b in pairwise(seat_ids) if b != a+1)
 
 
 print(solution_1(open("input/day5.txt")))
