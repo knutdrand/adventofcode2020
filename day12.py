@@ -36,9 +36,9 @@ def solution_1(lines):
 
 rotations = {
     0: lambda pos: pos,
-    90: lambda pos: (pos[1], -pos[0]),
+    90: lambda pos: (-pos[1], pos[0]),
     180: lambda pos: (-pos[0], -pos[1]),
-    270: lambda pos: (-pos[1], pos[0])}
+    270: lambda pos: (pos[1], -pos[0])}
              
 
 def solution_2(lines):
@@ -54,7 +54,7 @@ def solution_2(lines):
             cur_waypoint = (cur_waypoint[0] + direction[0]*n,
                             cur_waypoint[1] + direction[1]*n)
         else:
-            angle_dir = 1 if char == "L" else 1
+            angle_dir = 1 if char == "L" else -1
             cur_waypoint = rotations[(angle_dir*n) % 360](cur_waypoint)
     return abs(cur_pos[0]) + abs(cur_pos[1])
     
